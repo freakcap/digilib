@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Profile"
+    tools:showIn="@layout/app_bar_navigation_draw">androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:id="@+id/cls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CLass"
+        android:textSize="20sp"
+        android:layout_below="@+id/name"/>
+    <TextView
+        android:id="@+id/department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cls"
+        android:text="Department"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/books_issued"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/department"
+        android:text="Books Issued"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textAlignment="center"
+        android:textAllCaps="true"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/books_issued"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>
