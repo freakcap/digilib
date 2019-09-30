@@ -71,36 +71,29 @@ public class fine extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fine);
         Button send = (Button) findViewById(R.id.payBtn);
-
-        AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
-        Calendar calendar=Calendar.getInstance();
-        calendar.add(Calendar.HOUR_OF_DAY,0);
-
-        Intent intent=new Intent(this,AlarmReceiver.class);
-        PendingIntent broadcast=PendingIntent.getBroadcast(this,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),broadcast);
-
-
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O)
-        {
-            NotificationChannel notificationChannel=new NotificationChannel(CHANNEL_ID,CHANNEL_NAME
-                    , NotificationManager.IMPORTANCE_DEFAULT);
-            notificationChannel.setDescription(CHANNEL_DESC);
-            NotificationManager manager=getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(notificationChannel);
-        }
-
-
-        if(firebaseAuth.getCurrentUser()==null)
-        {
-            finish();
-            startActivity(new Intent(this,login.class));
-        }
-
         setup_IssuedBooks();
         totfin = (TextView)findViewById(R.id.textViewTotalFine);
         totalfine();
-        Log.d(amount," ");
+        if(amount != "0") {
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.HOUR_OF_DAY, 0);
+
+            Intent intent = new Intent(this, AlarmReceiver.class);
+            PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), broadcast);
+
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME
+                        , NotificationManager.IMPORTANCE_DEFAULT);
+                notificationChannel.setDescription(CHANNEL_DESC);
+                NotificationManager manager = getSystemService(NotificationManager.class);
+                manager.createNotificationChannel(notificationChannel);
+            }
+
+        }
+
 
 
         send.setOnClickListener(new View.OnClickListener() {

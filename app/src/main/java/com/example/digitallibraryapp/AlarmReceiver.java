@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat;
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    private static final String CHANNEL_ID = "DIGITAL LIBRARY APP";
+    private static final String CHANNEL_ID = "DIGITAL";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -29,8 +29,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         Notification.Builder builder = new Notification.Builder(context);
 
-        Notification notification = builder.setContentTitle("Demo App Notification")
-                .setContentText("New Notification From Demo App..")
+        Notification notification = builder.setContentTitle("DIGILIB Notification")
+                .setContentText(" Fine pending")
                 .setTicker("New Message Alert!")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent).build();
